@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+:root{
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    --veryDarkBlue: hsl(234, 12%, 34%);
+    --grayishBlue: hsl(229, 6%, 66%);
+    --veryLightGray: hsl(0, 0%, 97%);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--veryDarkBlue);
+    background: var(--veryLightGray);
+    padding: 50px 0;
+
+}
+
+main{
+    text-align: center;
+    max-width: 320px;
+}
+
+h1{
+    font-size: 1.7em;
+}
+
+.unboldText{
+    font-weight: 200;
+}
+
+main>p{
+    color: var(--grayishBlue);
+    margin: 30px 0;
+}
+
+.gridContainer{
+    text-align: left;
+    padding: 5px;
+    display: grid;
+    grid-template: 1fr / 1fr;
+    grid-row-gap: 15px;
+    position: relative;
+}
+
+.gridContainer>div{
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: #fff;
+    box-shadow: 0 0 20px #999;
+    line-height: 200%;
+}
+
+.gridContainer>div>p{
+    color: var(--grayishBlue);
+    margin-top: 10px;
+}
+
+.gridContainer>div>img{
+    margin-top: 25px;
+    width: 80px;
+    align-self: flex-end;
+}
+
+.gridContainer>div::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--cyan);
+}
+
+.gridContainer>div:nth-child(2)::after{
+    background: var(--red);
+}
+
+.gridContainer>div:nth-child(3)::after{
+    background: var(--orange);
+}
+
+.gridContainer>div:nth-child(4)::after{
+    background: var(--blue);
+}
+
+@media screen and (min-width: 950px) {
+    body{
+        padding: 0;
+    }
+    main{
+        max-width: 1200px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    main>h1{
+        font-size: 2em;
+    }
+
+    main>p{
+        max-width: 600px;
+        font-size: 1.2em;
+        align-self: center;
+    }
+    .gridContainer{
+        grid-template: 1fr 1fr / repeat(3, 1fr);
+        grid-column-gap: 15px;
+    }
+    .gridContainer>div{
+        max-height: 250px;
+        width: 300px;
+    }
+
+    .gridContainer>div>img{
+        width: 50px;
+    }
+
+    .supervisor, .karma{
+        grid-row: span 2;
+        align-self: center;
+    }
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
